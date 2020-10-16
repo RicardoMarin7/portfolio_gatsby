@@ -1,53 +1,72 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+import React from 'react'
+import Helmet from 'react-helmet'
+import { Global, css } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming'
+//Components
+import Header from './header'
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+const Layout = ({children}) => {
+    const theme ={
+        colors:{
+            red:'red',
+            blue:'blue',
+            pink:'pink'
         }
-      }
     }
-  `)
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
+    return ( 
+        <>
+            <Global 
+                styles={css`
+                    html{
+                        box-sizing: border-box;
+                        font-size: 62.5%;
+                    }
+                    *, *:before, *:after {
+                        box-sizing: inherit;
+                    }
+
+                    body{
+                        font-size:1.6rem;
+                        line-height:2;
+                        font-family: 'Open Sans', sans-serif;
+                        background-color:rgb(36, 40, 61);
+                    }
+
+                    h1,h2,h3,h4,h5,a{
+                        font-family: 'Montserrat', sans-serif;
+                    }
+
+                    ul{
+                        list-style:none;
+                        margin:0;
+                        padding:0;
+                    }
+
+                    .container{
+                        max-width: 114rem;
+                        margin: 0 auto;
+                        width: 95%;
+                    }
+
+                    img {
+                        max-width:100%;
+                    }
+
+                `}
+            />
+
+            <Helmet>
+                <title>Ricardo Marin</title>
+                <meta name="Portafolio profesional de Ricardo Marin, Full Stack Developer" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet"></link>
+            </Helmet>
+            
+            <Header />
+                    {children}
+        </>
+    )
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+ 
+export default Layout;
