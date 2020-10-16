@@ -11,7 +11,12 @@ const Header = () => {
                 padding:.8rem;
             `}
         >
-            <div className="container">
+            <div
+                css={css`
+                    max-width:114rem;
+                    margin: 0 auto;
+                `}
+            >
                 <Navigation />
             </div>
         </header>

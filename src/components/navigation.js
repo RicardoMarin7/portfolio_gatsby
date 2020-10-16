@@ -22,6 +22,8 @@ const Navigation = () => {
                     span{
                         color:#FBF4E0;
                     }
+
+                    
                 `}
             >
                 <span>R</span>icardo
@@ -35,13 +37,20 @@ const Navigation = () => {
                     display:flex;
                     justify-content: space-between;
                     align-items: center;
-                    flex-grow:1;
-                    max-width:52%;
                     a:first-of-type{
                         color:#F1A433;
                     }
+
+                    a{
+                        margin-right:1.2rem;
+                    }
+
+                    @media(max-width: 768px){
+                        display:none;
+                    }
                 `}
-            >    
+            >   
+                
                 <Link>Home</Link>
                 <Link>About</Link>
                 <Link>Servicios</Link>
@@ -58,7 +67,7 @@ const Navigation = () => {
                 >Contactame</Link>
             </div>
         </Nav>
-     )
+    )
 }
- 
+
 export default Navigation;
