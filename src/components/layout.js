@@ -1,18 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Global, css } from '@emotion/core'
-import { ThemeProvider } from 'emotion-theming'
 //Components
 import Header from './header'
 
 const Layout = ({children}) => {
-    const theme ={
-        colors:{
-            red:'red',
-            blue:'blue',
-            pink:'pink'
-        }
-    }
 
     return ( 
         <>
