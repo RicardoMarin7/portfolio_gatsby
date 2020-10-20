@@ -13,6 +13,7 @@ const Layout = ({children}) => {
                     html{
                         box-sizing: border-box;
                         font-size: 62.5%;
+                        width: 100%;
                     }
                     *, *:before, *:after {
                         box-sizing: inherit;
@@ -41,9 +42,19 @@ const Layout = ({children}) => {
                         width: 95%;
                     }
 
+                    @media(max-width:468px){
+                        .container{
+                            max-width: 114rem;
+                            margin: 0 auto;
+                            width: 85%;
+                        }
+                    }
+
                     img {
                         max-width:100%;
                     }
+
+
 
                 `}
             />
@@ -53,6 +64,7 @@ const Layout = ({children}) => {
                 <meta name="Portafolio profesional de Ricardo Marin, Full Stack Developer" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet"></link>
+                <meta name="theme-color" content="#1F2233" />
             </Helmet>
             
             <Header />
